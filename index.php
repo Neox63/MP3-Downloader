@@ -19,10 +19,9 @@
     
     <?php
         if(isset($_POST["video"])){
-            if (($pos = strpos($_POST["video"], "=")) !== false) { 
-                $id = substr($_POST["video"], $pos + 1); 
-                echo "<h3>Cliquez sur la qualité voulue : </h3>";
-            }
+            preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $_POST["video"], $match);
+            $id = $match[1];
+            echo "<h3>Cliquez sur la qualité voulue : </h3>";
         }
     ?>
     <iframe class="iFrame" scrolling="no" src="https://www.yt-download.org/@api/button/mp3/<?php echo $id;?>"></iframe>
