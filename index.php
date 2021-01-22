@@ -2,13 +2,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="A simple tool to download MP3 from YouTube !">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=”robots” content="index, follow">
+
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/f53d9ca4e1.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-    <title>MP3 Downloader</title>
+
+    <title>🎵 Music Downloader 🎵</title>
 </head>
 <body>
     <div class="app">
@@ -22,16 +27,16 @@
             <button name="submit" type="submit"><span class="point-right">👉</span> Hit me <span class="point-left">👈</span></button>
         </form>
         <?php
-            if (isset($_POST["submit"])) {
-                if(!empty($_POST["video"])){
-                    preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $_POST["video"], $match);
+            if (isset($_POST['submit'])) {
+                if(!empty($_POST['video'])){
+                    preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $_POST['video'], $match);
                     $id = $match[1];
-                    echo "<h3>Finally, choose the one that you want <span class='point-down'>👇</span></h3>";
+                    echo '<h3>Finally, choose the one that you want <span class="point-down">👇</span></h3>';
                     echo '<iframe scrolling="no" src="https://www.yt-download.org/@api/button/mp3/'.$id.'"></iframe>';
                     echo '<h3>If my tool helped you, leave it a <span class="pulse">⭐</span> on Github !</h3>';
                     echo '<a class="github-button" href="https://github.com/Neox63/MP3-Downloader-APP" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Neox63/MP3-Downloader-APP on GitHub">Star</a>';
                 } else {
-                    echo "<h3>Hmmm... Seems like you missed a step 🤔</h3>";
+                    echo '<h3>Hmmm... Seems like you missed a step 🤔</h3>';
                 }
             }
         ?>
