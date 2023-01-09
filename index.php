@@ -30,8 +30,9 @@
             if (isset($_POST['submit'])) {
                 if(!empty($_POST['video'])){
                     preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $_POST['video'], $match);
+                    $id = $match[1];
                     echo '<h3>Finally, choose the one that you want <span class="point-down">👇</span></h3>';
-                    echo '<iframe scrolling="no" src="https://www.yt-download.org/@api/button/mp3/'.$match[1].'"></iframe>';
+                    echo '<iframe scrolling="no" src="https://www.yt-download.org/@api/button/mp3/'.$id.'"></iframe>';
                     echo '<h3>If my tool helped you, leave it a <span class="pulse">⭐</span> on Github !</h3>';
                     echo '<a class="github-button" href="https://github.com/Neox63/MP3-Downloader" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Neox63/MP3-Downloader-APP on GitHub">Star</a>';
                 } else {
